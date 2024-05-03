@@ -1,0 +1,25 @@
+name: learning-github-actions
+
+on:
+  push:
+    branches:
+      - master
+      - unit-tests
+
+jobs:
+  build:
+    dev-environment:
+      runs-on: ubuntu-latest
+      environment: develop
+      steps:
+        - name: Print environment
+          run: |
+            echo "Environment: ${{ vars.ENVIRONMENT }}"
+
+    staging-environment:
+      runs-on: ubuntu-latest
+      environment: staging
+      steps:
+        - name: Print environment
+          run: |
+            echo "Environment: ${{ vars.ENVIRONMENT }}"
